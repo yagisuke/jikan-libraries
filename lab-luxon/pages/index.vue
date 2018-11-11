@@ -2,21 +2,11 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        lab-luxon
-      </h1>
-      <h2 class="subtitle">
-        My splendid Nuxt.js project
-      </h2>
+      <h1 class="title">lab-luxon</h1>
+      <h2 class="subtitle">{{ time | formatDatetime }}</h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        <a href="https://moment.github.io/luxon/" target="_blank" class="button--green">luxonとは</a>
+        <a href="https://github.com/yagisuke/lab-jikan/tree/master/lab-luxon" target="_blank" class="button--grey">このソース</a>
       </div>
     </div>
   </section>
@@ -24,10 +14,21 @@
 
 <script>
 import Logo from '~/components/Logo.vue'
+import { DateTime } from 'luxon';
 
 export default {
   components: {
     Logo
+  },
+  filters: {
+    formatDatetime: (time) => {
+      return DateTime.fromMillis(time).toFormat('D HH:mm:ss')
+    }
+  },
+  data: function() {
+    return {
+      time: Date.now()
+    }
   }
 }
 </script>
