@@ -2,32 +2,34 @@
   <section class="container">
     <div>
       <logo/>
-      <h1 class="title">
-        lab-moment
-      </h1>
-      <h2 class="subtitle">
-        My stellar Nuxt.js project
-      </h2>
+      <h1 class="title">lab-moment</h1>
+      <h2 class="subtitle">{{ time | format }}</h2>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        <a href="https://momentjs.com/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/yagisuke/lab-jikan/tree/master/lab-moment" target="_blank" class="button--grey">GitHub</a>
       </div>
+    </div>
+    <div>
+
     </div>
   </section>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
+import moment from 'moment'
 
 export default {
   components: {
     Logo
+  },
+  filters: {
+    format: (time) => moment(time).format('YYYY-MM-DD HH:mm')
+  },
+  data: function() {
+    return {
+      time: Date.now()
+    }
   }
 }
 </script>
