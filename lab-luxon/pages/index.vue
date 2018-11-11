@@ -5,7 +5,7 @@
       <h1 class="title">lab-luxon</h1>
       <h2 class="subtitle">{{ time | formatDatetime }}</h2>
       <div class="links">
-        <a href="https://moment.github.io/luxon/" target="_blank" class="button--green">luxonとは</a>
+        <a href="https://github.com/moment/luxon/" target="_blank" class="button--green">luxonとは</a>
         <a href="https://github.com/yagisuke/lab-jikan/tree/master/lab-luxon" target="_blank" class="button--grey">このソース</a>
       </div>
     </div>

@@ -5,7 +5,7 @@
       <h1 class="title">lab-dayjs</h1>
       <h2 class="subtitle">{{ time | formatDatetime }}</h2>
       <div class="links">
-        <a href="https://github.com/iamkun/dayjs" target="_blank" class="button--green">dayjsとは</a>
+        <a href="https://github.com/iamkun/dayjs/" target="_blank" class="button--green">dayjsとは</a>
         <a href="https://github.com/yagisuke/lab-jikan/tree/master/lab-dayjs" target="_blank" class="button--grey">このソース</a>
       </div>
     </div>
