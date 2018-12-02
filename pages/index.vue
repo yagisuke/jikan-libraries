@@ -2,21 +2,26 @@
   <section class="container">
     <div>
       <app-logo/>
-      <h1 class="title">
-        lab-jikan
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
+      <h1 class="title">lab-jikan</h1>
+      <section>
+        <h2 class="subtitle">moment</h2>
+        <p>{{ time | formatMoment }}</p>
+      </section>
+      <section>
+        <h2 class="subtitle">date-fns</h2>
+        <p>{{ time | dateFnsFormat }}</p>
+      </section>
+      <section>
+        <h2 class="subtitle">dayjs</h2>
+        <p>{{ time | dayjsFormat }}</p>
+      </section>
+      <section>
+        <h2 class="subtitle">luxon</h2>
+        <p>{{ time | luxonFormat }}</p>
+      </section>
       <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
   </section>
@@ -25,9 +30,25 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 
+import moment from 'moment'
+import format from 'date-fns/format'
+import dayjs from 'dayjs'
+import { DateTime } from 'luxon'
+
 export default {
   components: {
     AppLogo
+  },
+  filters: {
+    formatMoment: (time) => moment(time).format('YYYY-MM-DD HH:mm'),
+    dateFnsFormat: (time) => format(time, 'YYYY-MM-DD HH:mm'),
+    dayjsFormat: (time) => dayjs(time).format('YYYY-MM-DD HH:mm'),
+    luxonFormat: (time) => DateTime.fromMillis(time).toFormat('D HH:mm')
+  },
+  data: function() {
+    return {
+      time: Date.now()
+    }
   }
 }
 </script>
@@ -62,4 +83,3 @@ export default {
   padding-top: 15px;
 }
 </style>
-
