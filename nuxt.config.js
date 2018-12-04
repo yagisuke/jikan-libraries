@@ -1,4 +1,7 @@
 module.exports = {
+  modules: [
+    ['@nuxtjs/moment', ['ja']]
+  ],
   /*
   ** Headers of the page
   */
