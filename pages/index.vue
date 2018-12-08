@@ -5,19 +5,19 @@
       <h1 class="title">lab-jikan</h1>
       <section>
         <h2 class="subtitle">moment</h2>
-        <p>{{ time | formatMoment }}</p>
+        <p>{{ formatMoment }}</p>
       </section>
       <section>
         <h2 class="subtitle">date-fns</h2>
-        <p>{{ time | dateFnsFormat }}</p>
+        <p>{{ dateFnsFormat }}</p>
       </section>
       <section>
         <h2 class="subtitle">dayjs</h2>
-        <p>{{ time | dayjsFormat }}</p>
+        <p>{{ dayjsFormat }}</p>
       </section>
       <section>
         <h2 class="subtitle">luxon</h2>
-        <p>{{ time | luxonFormat }}</p>
+        <p>{{ luxonFormat }}</p>
       </section>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
@@ -30,24 +30,27 @@
 <script>
 import AppLogo from '~/components/AppLogo.vue'
 
-import moment from 'moment'
-import format from 'date-fns/format'
-import dayjs from 'dayjs'
-import { DateTime } from 'luxon'
-
 export default {
   components: {
     AppLogo
   },
-  filters: {
-    formatMoment: (time) => moment(time).format('YYYY-MM-DD HH:mm'),
-    dateFnsFormat: (time) => format(time, 'YYYY-MM-DD HH:mm'),
-    dayjsFormat: (time) => dayjs(time).format('YYYY-MM-DD HH:mm'),
-    luxonFormat: (time) => DateTime.fromMillis(time).toFormat('D HH:mm')
-  },
   data: function() {
     return {
       time: Date.now()
+    }
+  },
+  computed: {
+    formatMoment: function() {
+      return this.$moment(this.time).format('YYYY-MM-DD HH:mm')
+    },
+    dateFnsFormat: function() {
+      return this.$date_format(this.time, 'YYYY-MM-DD HH:mm')
+    },
+    dayjsFormat: function() {
+      return this.$dayjs(this.time).format('YYYY-MM-DD HH:mm')
+    },
+    luxonFormat: function() {
+      return this.$luxonDateTime.fromMillis(this.time).toFormat('yyyy-MM-dd HH:mm')
     }
   }
 }
