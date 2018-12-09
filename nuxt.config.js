@@ -4,8 +4,8 @@ module.exports = {
   ],
   plugins: [
     { src: '~/plugins/dayjs', ssr: true },
-    { src: '~/plugins/luxon', ssr: true },
     { src: '~/plugins/date-fns', ssr: true },
+    { src: '~/plugins/luxon', ssr: true }
   ],
   /*
   ** Headers of the page

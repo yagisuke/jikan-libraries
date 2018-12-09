@@ -8,12 +8,12 @@
         <p>{{ formatMoment }}</p>
       </section>
       <section>
-        <h2 class="subtitle">date-fns</h2>
-        <p>{{ dateFnsFormat }}</p>
-      </section>
-      <section>
         <h2 class="subtitle">dayjs</h2>
         <p>{{ dayjsFormat }}</p>
+      </section>
+      <section>
+        <h2 class="subtitle">date-fns</h2>
+        <p>{{ dateFnsFormat }}</p>
       </section>
       <section>
         <h2 class="subtitle">luxon</h2>
