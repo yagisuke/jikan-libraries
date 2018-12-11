@@ -8,3 +8,5 @@ export default (ctx, inject) => {
     return format(parse(date), formatStr, { locale: ja })
   })
 }
+
+// https://qiita.com/idani/items/69cbd5e1d98f2eac48d7

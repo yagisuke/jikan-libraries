@@ -17,7 +17,7 @@
       </section>
       <section>
         <h2 class="subtitle">luxon</h2>
-        <p>{{ luxonFormat }}</p>
+        <p>{{ time | luxon }}</p>
       </section>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
@@ -48,9 +48,6 @@ export default {
     },
     dayjsFormat: function() {
       return this.$dayjs(this.time).format('YYYY-MM-DD HH:mm')
-    },
-    luxonFormat: function() {
-      return this.$luxonDateTime.fromMillis(this.time).toFormat('yyyy-MM-dd HH:mm')
     }
   }
 }
