@@ -50,7 +50,7 @@ html {
   background-color: #35495e;
 }
 
-.container {
+.wrapper {
   padding-top: 30px;
 }
 </style>

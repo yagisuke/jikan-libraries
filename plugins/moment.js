@@ -20,6 +20,6 @@ export default ({ app }, inject) => {
    * 3. 2つの日付の差を計算できること
    */
   inject('dayCountByMoment', (date1, date2) => {
-    return app.$moment(date1).diff(app.$moment(date2), 'days')
+    return app.$moment(date2).diff(app.$moment(date1), 'days')
   })
 }

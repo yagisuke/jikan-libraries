@@ -1,26 +1,27 @@
-// import Vue from 'vue'
-// import { DateTime } from 'luxon'
-
-// Vue.prototype.$luxonDateTime = DateTime
-import { DateTime } from 'luxon'
-
 import Vue from 'vue'
-
-Vue.filter('luxon', date => DateTime.fromMillis(date, { locale: 'ja', zone: 'Asia/Tokyo' }).toFormat('yyyy/MM/dd HH:mm'))
+import { DateTime, Interval } from 'luxon'
 
 export default (ctx, inject) => {
-  inject('luxon', (date, formatStr = 'yyyy/MM/dd HH:mm') => {
-    if (!date) return date
-    return DateTime.fromMillis(date).toFormat(formatStr)
+  /**
+   * 1. 好きな形式で出力できること
+   */
+  const TEMPLATE = 'yyyy/MM/dd HH:mm:ss'
+  const format = (date, template) => DateTime.fromMillis(date).toFormat(template)
+  Vue.filter('formatByLuxon', (date, template = TEMPLATE) => format(date, template))
+  inject('formatByLuxon', (date, template = TEMPLATE) => format(date, template))
+
+  /**
+   * 2. 日付の加算と減算ができること
+   */
+  inject('addDaysByLuxon', (date, days = 0) => {
+    return DateTime.fromMillis(date).plus({ days }).toFormat('yyyy/MM/dd')
+  })
+
+  /**
+   * 3. 2つの日付の差を計算できること
+   */
+  inject('dayCountByLuxon', (date1, date2) => {
+    const dt = date => typeof date === 'number' ? DateTime.fromMillis(date) : DateTime.fromISO(date)
+    return Math.floor(Interval.fromDateTimes(dt(date1), dt(date2)).length('days'))
   })
 }
-
-// https://qiita.com/bobu_web/items/2cecc3fdb7d2b0942ef1
-// https://qiita.com/bobu_web/items/2cecc3fdb7d2b0942ef1
-
-// ## filterとinjectで書いてみる
-// 1. 好きな形式で出力できること -> millis
-
-// ## injectで書いてみる
-// 2. 日付時刻を比較できること -> isBefore
-// 3. 日付時刻の差を取得できること -> isBefore
