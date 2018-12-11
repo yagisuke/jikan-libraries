@@ -3,6 +3,7 @@ module.exports = {
     ['@nuxtjs/moment', ['ja']]
   ],
   plugins: [
+    { src: '~/plugins/moment', ssr: true },
     { src: '~/plugins/dayjs', ssr: true },
     { src: '~/plugins/date-fns', ssr: true },
     { src: '~/plugins/luxon', ssr: true }
@@ -11,7 +12,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: 'lab-jikan',
+    title: 'jikan-libraries',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },

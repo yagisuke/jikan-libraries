@@ -1,4 +1,4 @@
-# lab-jikan
+# jikan-libraries
 
 > Nuxt.js project
 

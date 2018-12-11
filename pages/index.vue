@@ -2,26 +2,16 @@
   <section class="container">
     <div>
       <app-logo/>
-      <h1 class="title">lab-jikan</h1>
-      <section>
-        <h2 class="subtitle">moment</h2>
-        <p>{{ formatMoment }}</p>
-      </section>
-      <section>
-        <h2 class="subtitle">dayjs</h2>
-        <p>{{ dayjsFormat }}</p>
-      </section>
-      <section>
-        <h2 class="subtitle">date-fns</h2>
-        <p>{{ dateFnsFormat }}</p>
-      </section>
-      <section>
-        <h2 class="subtitle">luxon</h2>
-        <p>{{ time | luxon }}</p>
-      </section>
+      <h1 class="title">jikan-libraries</h1>
+      <ul class="libraries">
+        <li><nuxt-link to="/sample/moment">momentのページ</nuxt-link></li>
+        <li><nuxt-link to="/sample/dayjs">dayjsのページ</nuxt-link></li>
+        <li><nuxt-link to="/sample/date-fns">date-fnsのページ</nuxt-link></li>
+        <li><nuxt-link to="/sample/luxon">luxonのページ</nuxt-link></li>
+      </ul>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">Documentation</a>
-        <a href="https://github.com/nuxt/nuxt.js" target="_blank" class="button--grey">GitHub</a>
+        <a href="https://qiita.com/yagi_suke" target="_blank" class="button--green">Documentation</a>
+        <a href="https://github.com/yagisuke/jikan-libraries" target="_blank" class="button--grey">GitHub</a>
       </div>
     </div>
   </section>
@@ -33,22 +23,6 @@ import AppLogo from '~/components/AppLogo.vue'
 export default {
   components: {
     AppLogo
-  },
-  data: function() {
-    return {
-      time: Date.now()
-    }
-  },
-  computed: {
-    formatMoment: function() {
-      return this.$moment(this.time).format('YYYY-MM-DD HH:mm')
-    },
-    dateFnsFormat: function() {
-      return this.$date_format(this.time, 'YYYY-MM-DD HH:mm')
-    },
-    dayjsFormat: function() {
-      return this.$dayjs(this.time).format('YYYY-MM-DD HH:mm')
-    }
   }
 }
 </script>
@@ -71,12 +45,10 @@ export default {
   letter-spacing: 1px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.libraries {
+  margin: 30px;
+  text-align: left;
+  font-size: 30px;
 }
 
 .links {
