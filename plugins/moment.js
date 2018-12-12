@@ -12,8 +12,8 @@ export default ({ app }, inject) => {
   /**
    * 2. 日付の加算と減算ができること
    */
-  inject('addDaysByMoment', (date, days = 0) => {
-    return app.$moment(date).add(days, 'days').format('YYYY/MM/DD')
+  inject('addDaysByMoment', (date, amount = 0, template = 'yyyy/MM/dd') => {
+    return app.$moment(date).add(amount, 'days').format(template)
   })
 
   /**

@@ -12,8 +12,8 @@ export default (_, inject) => {
   /**
    * 2. 日付の加算と減算ができること
    */
-  inject('addDaysByDateFns', (date, days = 0) => {
-    return format(addDays(date, days), 'YYYY/MM/DD')
+  inject('addDaysByDateFns', (date, amount = 0, template = 'yyyy/MM/dd') => {
+    return format(addDays(date, amount), template)
   })
 
   /**
