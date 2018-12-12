@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import { DateTime, Interval } from 'luxon'
+import { DateTime } from 'luxon'
 
 export default (ctx, inject) => {
   /**
@@ -21,7 +21,8 @@ export default (ctx, inject) => {
    * 3. 2つの日付の差を計算できること
    */
   inject('dayCountByLuxon', (date1, date2) => {
-    const dt = date => typeof date === 'number' ? DateTime.fromMillis(date) : DateTime.fromISO(date)
-    return Math.floor(Interval.fromDateTimes(dt(date1), dt(date2)).length('days'))
+    const start = DateTime.fromMillis(date1)
+    const end = DateTime.fromMillis(date2)
+    return Math.floor(end.diff(start, 'days').days)
   })
 }

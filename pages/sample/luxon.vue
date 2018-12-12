@@ -40,10 +40,10 @@ export default {
       return this.$addDaysByLuxon(Date.now(), 3)
     },
     elapsedDays: function() {
-      return this.$dayCountByLuxon('1964-10-10', Date.now())
+      return this.$dayCountByLuxon(new Date('1964-10-10').getTime(), Date.now())
     },
     remainingDays: function() {
-      return this.$dayCountByLuxon(Date.now(), '2020-07-24')
+      return this.$dayCountByLuxon(Date.now(), new Date('2020-07-24').getTime())
     }
   }
 }
