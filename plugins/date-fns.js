@@ -1,12 +1,25 @@
-import format from 'date-fns/format'
-import ja from 'date-fns/locale/ja'
-import parse from 'date-fns/parse'
+import Vue from 'vue'
+import { format, addDays, differenceInDays } from 'date-fns'
 
-export default (ctx, inject) => {
-  inject('date_format', (date, formatStr) => {
-    if (!date) return date
-    return format(parse(date), formatStr, { locale: ja })
+export default (_, inject) => {
+  /**
+   * 1. 好きな形式で出力できること
+   */
+  const TEMPLATE = 'YYYY/MM/DD HH:mm:ss'
+  Vue.filter('formatByDateFns', (date, template = TEMPLATE) => format(date, template))
+  inject('formatByDateFns', (date, template = TEMPLATE) => format(date, template))
+
+  /**
+   * 2. 日付の加算と減算ができること
+   */
+  inject('addDaysByDateFns', (date, days = 0) => {
+    return format(addDays(date, days), 'YYYY/MM/DD')
+  })
+
+  /**
+   * 3. 2つの日付の差を計算できること
+   */
+  inject('dayCountByDateFns', (start, end) => {
+    return differenceInDays(end, start)
   })
 }
-
-// https://qiita.com/idani/items/69cbd5e1d98f2eac48d7

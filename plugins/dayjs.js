@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import dayjs from 'dayjs'
 
-export default (ctx, inject) => {
+export default (_, inject) => {
   /**
    * 1. 好きな形式で出力できること
    */
@@ -14,7 +14,7 @@ export default (ctx, inject) => {
    * 2. 日付の加算と減算ができること
    */
   inject('addDaysByDayjs', (date, days = 0) => {
-    return dayjs(date).add(days, 'days').format("YYYY/MM/DD")
+    return dayjs(date).add(days, 'days').format('YYYY/MM/DD')
   })
 
   /**

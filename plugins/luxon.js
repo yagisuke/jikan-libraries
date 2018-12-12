@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { DateTime } from 'luxon'
 
-export default (ctx, inject) => {
+export default (_, inject) => {
   /**
    * 1. 好きな形式で出力できること
    */
