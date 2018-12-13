@@ -13,7 +13,7 @@ export default (_, inject) => {
   /**
    * 2. 日付の加算と減算ができること
    */
-  inject('addDaysByDayjs', (date, amount = 0, template = 'yyyy/MM/dd') => {
+  inject('addDaysByDayjs', (date, amount = 0, template = 'YYYY/MM/DD') => {
     return dayjs(date).add(amount, 'days').format(template)
   })
 

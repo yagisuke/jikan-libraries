@@ -12,7 +12,7 @@ export default (_, inject) => {
   /**
    * 2. 日付の加算と減算ができること
    */
-  inject('addDaysByDateFns', (date, amount = 0, template = 'yyyy/MM/dd') => {
+  inject('addDaysByDateFns', (date, amount = 0, template = 'YYYY/MM/DD') => {
     return format(addDays(date, amount), template)
   })
 

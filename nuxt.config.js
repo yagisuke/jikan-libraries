@@ -3,10 +3,10 @@ module.exports = {
     ['@nuxtjs/moment', ['ja']]
   ],
   plugins: [
-    { src: '~/plugins/moment', ssr: true },
-    { src: '~/plugins/dayjs', ssr: true },
-    { src: '~/plugins/date-fns', ssr: true },
-    { src: '~/plugins/luxon', ssr: true }
+    { src: '~/plugins/moment' },
+    { src: '~/plugins/dayjs' },
+    { src: '~/plugins/date-fns' },
+    { src: '~/plugins/luxon' }
   ],
   /*
   ** Headers of the page
