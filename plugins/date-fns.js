@@ -1,5 +1,7 @@
 import Vue from 'vue'
-import { format, addDays, differenceInDays } from 'date-fns'
+import format from 'date-fns/format'
+import addDays from 'date-fns/add_days'
+import differenceInDays from 'date-fns/difference_in_days'
 
 export default (_, inject) => {
   /**
